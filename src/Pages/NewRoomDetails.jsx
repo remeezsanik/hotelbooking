@@ -4,9 +4,19 @@ import { Link } from 'react-router-dom'
 import StyledHero from "../Components/StyledHero/StyledHero";
 import img12 from "../assets/img/jpeg/room-12.jpeg";
 import Banner from "../Components/Banner/Banner";
+import { Button } from '../Components/Button'
+import { useHistory } from 'react-router-dom';
 
 function NewRoomDetails({ match }) {
     const details = newData.find(item => item.id == match.params.id);
+    const history = useHistory();
+    const deleteHandler = (e) => {
+        e.preventDefault();
+
+
+        alert('Successfully Deleted!');
+        history.push('/new-room')
+    }
 
     return (
         <>
@@ -32,10 +42,10 @@ function NewRoomDetails({ match }) {
                         <Link to={`/newroom/edit/${details.id}`} className='btn-primary'>
                             Edit
                         </Link>
+                        <Button text="Delete" color="secondary" onClick={deleteHandler}
+                        />
                     </article>
-
                 </div>
-
             </section>
 
         </>

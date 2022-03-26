@@ -65,6 +65,21 @@ h6 {
   text-transform: uppercase;
   cursor: pointer;
 }
+.btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 1px; */
+  color: #ffff;
+  background: rgb(243, 2, 2);
+  border: 2px solid ;
+  cursor: pointer;
+  padding: 6px;
+}
+.btn-secondary:hover {
+  background: transparent;
+  color: var(--mainBlack);
+  border-radius: 20%;
+}
 .btn-primary:hover {
   background: transparent;
   color: var(--primaryColor);
@@ -222,6 +237,7 @@ h6 {
 .section-title {
   text-align: center;
   margin-bottom: 2rem;
+  margin-top: 5px;
 }
 .section-title h4 {
   font-size: 2rem;

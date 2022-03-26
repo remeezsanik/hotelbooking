@@ -7,6 +7,8 @@ import { Select as MuiSelect } from '@material-ui/core';
 import { newData } from '../Data/newData'
 import img12 from "../assets/img/jpeg/room-12.jpeg";
 import Title from '../Components/Title/Title';
+import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 const initialValues = {
@@ -54,7 +56,8 @@ const roomCapacity = [
 ];
 function EditForm({ match }) {
     const { values, handleChange, setValues } = useForm(initialValues);
-    const details = newData.find(item => item.id == match.params.id)
+    const details = newData.find(item => item.id == match.params.id);
+    const history = useHistory();
 
     useEffect(() => {
         setValues({
@@ -84,6 +87,10 @@ function EditForm({ match }) {
         // console.log(newData[index])
     }
     // console.log(index)
+    const returnBack = () => {
+        history.push('/new-room')
+    };
+
     return (
         <>
             <Title title="Edit room" />
@@ -155,6 +162,7 @@ function EditForm({ match }) {
                         </FormControl>
                         <div>
                             <Button text="Submit" type="submit" onClick={editData} />
+                            <Button text="Cancel" color="secondary" onClick={returnBack} />
                         </div><br />
                     </Grid>
                 </Grid>

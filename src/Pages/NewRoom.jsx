@@ -7,6 +7,7 @@ import { Select as MuiSelect } from '@material-ui/core';
 import { newData } from '../Data/newData'
 import img12 from "../assets/img/jpeg/room-12.jpeg";
 import NewRoomCard from '../Components/NewRoomCard'
+import Title from '../Components/Title/Title';
 
 const initialValues = {
     id: '',
@@ -55,13 +56,14 @@ const NewRoom = () => {
     const { values, handleChange } = useForm(initialValues);
 
     const submitHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         newData.push(values);
     }
     // console.log("data>>", newData);
 
     return (
         <>
+            <Title title="Add room" />
             <Form autoComplete="off">
                 <Grid container>
                     <Grid item xs={6}>
