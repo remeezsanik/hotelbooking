@@ -12,10 +12,9 @@ function NewRoomDetails({ match }) {
     const history = useHistory();
     const deleteHandler = (e) => {
         e.preventDefault();
-
-
+        newData.pop(details.id);
         alert('Successfully Deleted!');
-        history.push('/new-room')
+        history.push('/new-room');
     }
 
     return (

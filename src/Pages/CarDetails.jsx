@@ -12,10 +12,9 @@ function CarDetails({ match }) {
     const history = useHistory();
     const deleteHandler = (e) => {
         e.preventDefault();
-
-
+        carData.pop(details.id);
         alert('Successfully Deleted!');
-        history.push('/cars')
+        history.push('/cars');
     }
 
     return (
