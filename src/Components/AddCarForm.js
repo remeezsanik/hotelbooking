@@ -34,8 +34,11 @@ const carBrand = [
 ];
 
 const carCapacity = [
+    { id: 1 },
     { id: 2 },
+    { id: 3 },
     { id: 4 },
+    { id: 5 },
     { id: 6 }
 ];
 
@@ -75,14 +78,14 @@ export default function AddCarForm() {
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        {/* <Select name="type"
+                        <Select name="type"
                             label="Car Seats"
                             value={values.type}
                             onChange={handleChange}
                             options={carType}
-                        /> */}
+                        />
                         <FormControl variant='outlined'>
-                            <InputLabel>Seats</InputLabel>
+                            <InputLabel>Passenger</InputLabel>
                             <MuiSelect label="Capacity"
                                 name="capacity"
                                 value={values.capacity}

@@ -69,7 +69,7 @@ function EditForm({ match }) {
         carData[index].capacity = values.capacity
         carData[index].parkAssist = values.parkAssist
         history.push(`/cars/${details.id}`)
-        // console.log(newData[index])
+        // console.log(carData[index])
     }
     // console.log(index)
     const returnBack = () => {
@@ -103,14 +103,14 @@ function EditForm({ match }) {
 
                     </Grid>
                     <Grid item xs={6}>
-                        {/* <Select name="type"
+                        <Select name="type"
                             label="Room Type"
                             value={values.type}
                             onChange={handleChange}
-                            options={roomType}
-                        /> */}
+                            options={carType}
+                        />
                         <FormControl variant='outlined'>
-                            <InputLabel>Seats</InputLabel>
+                            <InputLabel>Passenger</InputLabel>
                             <MuiSelect label="Capacity"
                                 name="capacity"
                                 value={values.capacity}
