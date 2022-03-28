@@ -36,8 +36,11 @@ const carBrand = [
 ];
 
 const carCapacity = [
+    { id: 1 },
     { id: 2 },
+    { id: 3 },
     { id: 4 },
+    { id: 5 },
     { id: 6 }
 ];
 
@@ -100,7 +103,6 @@ function EditForm({ match }) {
                             value={values.price}
                             onChange={handleChange}
                         />
-
                     </Grid>
                     <Grid item xs={6}>
                         <Select name="type"

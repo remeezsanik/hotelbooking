@@ -34,8 +34,12 @@ function CarDetails({ match }) {
                         <h6>price : ${details.price}</h6>
                         <h6>brand : {details.name}</h6>
                         <h6>
-                            max capacity :{" "}
-                            {details.capacity > 1 ? `${details.capacity} seats` : `${details.capacity} seats`}
+                            Car type :{" "}
+                            {details.capacity > 1 ? `${details.type}` : `${details.type}`}
+                        </h6>
+                        <h6>
+                            Passengers:{" "}
+                            {details.capacity > 1 ? `${details.capacity} passengers` : `${details.capacity} passengers`}
                         </h6>
                         <h6> Park Assistance :{" "} {details.parkAssist ? "Yes" : "No"}</h6>
                         <Link to={`/cars/edit/${details.id}`} className='btn-primary'>
@@ -46,7 +50,6 @@ function CarDetails({ match }) {
                     </article>
                 </div>
             </section>
-
         </>
     )
 }
