@@ -56,7 +56,7 @@ const roomCapacity = [
     { id: 6 },
     { id: 10 }
 ];
-function EditForm({ match }) {
+function EditRoom({ match }) {
     const { values, handleChange, setValues } = useForm(initialValues);
     const details = newData.find(item => item.id == match.params.id);
     const history = useHistory();
@@ -174,4 +174,4 @@ function EditForm({ match }) {
     )
 }
 
-export default EditForm
+export default EditRoom

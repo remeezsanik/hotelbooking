@@ -13,7 +13,7 @@ import NewRoom from "../Pages/NewRoom";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import NewRoomDetails from "../Pages/NewRoomDetails";
-import EditForm from '../Pages/EditForm'
+import EditRoom from '../Pages/EditRoom'
 import EditCar from '../Components/EditCar'
 import Cars from "../Pages/Cars";
 import CarDetails from "../Pages/CarDetails";
@@ -29,7 +29,7 @@ function App() {
         <Route exact path="/rooms/:slug" component={SingleRoom} />
         <Route exact path="/new-room/" component={NewRoom} />
         <Route exact path="/newrooms/:id" component={NewRoomDetails} />
-        <Route exact path='/newroom/edit/:id' component={EditForm} />
+        <Route exact path='/newroom/edit/:id' component={EditRoom} />
         <Route exact path="/cars/" component={Cars} />
         <Route exact path="/cars/:id" component={CarDetails} />
         <Route exact path="/cars/edit/:id" component={EditCar} />

@@ -61,7 +61,7 @@ export default function AddCarForm() {
                         />
                         <Select
                             name="name"
-                            label="Car Brand"
+                            label="Brand"
                             value={values.name}
                             onChange={handleChange}
                             options={carBrand}
