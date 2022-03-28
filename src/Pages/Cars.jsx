@@ -2,17 +2,10 @@ import React, { useState } from 'react'
 import { carData } from '../Data/carData';
 import CarCard from '../Components/CarCard';
 import { Button } from '../Components/Button';
-import { makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import AddCarForm from '../Components/AddCarForm';
 import Popup from '../Components/Popup';
-
-const usestyles = makeStyles(() => ({
-    newButton: {
-        position: 'absolute',
-        right: '20px',
-    }
-}));
+import { usestyles } from './NewRoom'
 
 const Cars = () => {
     const classes = usestyles();

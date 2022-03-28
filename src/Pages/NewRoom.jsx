@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import AddRoomForm from '../Components/AddRoomForm';
 import Popup from '../Components/Popup';
 
-const usestyles = makeStyles(() => ({
+export const usestyles = makeStyles(() => ({
     newButton: {
         position: 'absolute',
         right: '20px',

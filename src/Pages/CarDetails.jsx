@@ -21,7 +21,7 @@ function CarDetails({ match }) {
     return (
         <>
             <StyledHero img={details.image || benz}>
-                <Banner title={`${details.name} room`}>
+                <Banner title={`${details.name}`}>
                     <Link to="/cars/" className="btn-primary">
                         back to cars
                     </Link>
