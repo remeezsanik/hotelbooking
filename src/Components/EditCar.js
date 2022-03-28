@@ -7,58 +7,44 @@ import { useForm, Form } from '../Components/useForm'
 import { Select } from '../Components/Select'
 import { Button } from '../Components/Button'
 import { Select as MuiSelect } from '@material-ui/core';
-import { newData } from '../Data/newData'
-import img12 from "../assets/img/jpeg/room-12.jpeg";
+import { carData } from '../Data/carData'
+import benz from '../assets/img/cars/benz.jpeg'
 import Title from '../Components/Title/Title';
 import { useHistory } from 'react-router-dom'
-
 
 const initialValues = {
     id: '',
     name: "",
     type: "",
+    image: benz,
     price: 0,
-    size: 0,
-    image: img12,
     capacity: 0,
-    pets: "No",
-    breakfast: "Yes",
+    parkAssist: "No",
 };
 
-const roomType = [
-    { id: 1, title: "Single" },
-    { id: 2, title: "Double" },
-    { id: 3, title: "Family" },
-    { id: 4, title: "Presidential" }
+const carType = [
+    { id: 1, title: "2 Seater" },
+    { id: 2, title: "4 Seater" },
+    { id: 3, title: "6 Seater" }
 ];
-const roomCategory = [
-    { id: 1, title: "Single Economy" },
-    { id: 2, title: "Single Basic" },
-    { id: 3, title: "Single Standard" },
-    { id: 4, title: "Single Ddeluxe" },
-    { id: 5, title: "Double Economy" },
-    { id: 6, title: "Double Basic" },
-    { id: 7, title: "Double Standard" },
-    { id: 8, title: "Double Deluxe" },
-    { id: 9, title: "Family Economy" },
-    { id: 10, title: "Family Basic" },
-    { id: 11, title: "Family Standard" },
-    { id: 12, title: "Family Deluxe" },
-    { id: 13, title: "Presidential Room" }
+const carBrand = [
+    { id: 1, title: "Porsche" },
+    { id: 2, title: "Audi" },
+    { id: 3, title: "Mercedes Benz" },
+    { id: 4, title: "BMW" },
+    { id: 5, title: "Volks Wagen" },
 ];
 
-const roomCapacity = [
-    { id: 1 },
+const carCapacity = [
     { id: 2 },
-    { id: 3 },
     { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 10 }
+    { id: 6 }
 ];
+
+
 function EditForm({ match }) {
     const { values, handleChange, setValues } = useForm(initialValues);
-    const details = newData.find(item => item.id == match.params.id);
+    const details = carData.find(item => item.id == match.params.id);
     const history = useHistory();
 
     useEffect(() => {
@@ -67,31 +53,27 @@ function EditForm({ match }) {
             name: details.name,
             type: details.type,
             price: details.price,
-            size: details.size,
             image: details.image,
             capacity: details.capacity,
-            pets: details.pets,
-            breakfast: details.breakfast,
+            parkAssist: details.parkAssist,
         })
     }, [details]);
 
     const editData = (event) => {
         event.preventDefault()
-        const index = newData.findIndex(s => s.id == match.params.id)
+        const index = carData.findIndex(s => s.id == match.params.id)
         alert("Succesfully edited");
-        newData[index].name = values.name
-        newData[index].type = values.type
-        newData[index].price = values.price
-        newData[index].size = values.size
-        newData[index].capacity = values.capacity
-        newData[index].pets = values.pets
-        newData[index].breakfast = values.breakfast
-        history.push(`/newrooms/${details.id}`)
+        carData[index].name = values.name
+        carData[index].type = values.type
+        carData[index].price = values.price
+        carData[index].capacity = values.capacity
+        carData[index].parkAssist = values.parkAssist
+        history.push(`/cars/${details.id}`)
         // console.log(newData[index])
     }
     // console.log(index)
     const returnBack = () => {
-        history.push(`/newrooms/${details.id}`)
+        history.push(`/cars/${details.id}`)
     };
 
     return (
@@ -106,10 +88,10 @@ function EditForm({ match }) {
                             value={values.id}
                         />
                         <Select name="name"
-                            label="Room Category"
+                            label="Car Brand"
                             value={values.name}
                             onChange={handleChange}
-                            options={roomCategory}
+                            options={carBrand}
                         />
                         <TextField variant="outlined"
                             label="Price"
@@ -118,50 +100,36 @@ function EditForm({ match }) {
                             value={values.price}
                             onChange={handleChange}
                         />
+
+                    </Grid>
+                    <Grid item xs={6}>
+                        {/* <Select name="type"
+                            label="Room Type"
+                            value={values.type}
+                            onChange={handleChange}
+                            options={roomType}
+                        /> */}
                         <FormControl variant='outlined'>
-                            <InputLabel>Guests</InputLabel>
+                            <InputLabel>Seats</InputLabel>
                             <MuiSelect label="Capacity"
                                 name="capacity"
                                 value={values.capacity}
                                 onChange={handleChange}>
                                 <MenuItem value="">None</MenuItem>
-                                {roomCapacity.map((item) => (
+                                {carCapacity.map((item) => (
                                     <MenuItem key={item.id} value={item.id}>{item.id}</MenuItem>
                                 ))}
                             </MuiSelect>
                         </FormControl>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Select name="type"
-                            label="Room Type"
-                            value={values.type}
-                            onChange={handleChange}
-                            options={roomType}
-                        />
-                        <TextField variant="outlined"
-                            label="Size"
-                            name='size'
-                            type="number"
-                            value={values.size}
-                            onChange={handleChange}
-                        />
                         <FormControl>
-                            <FormLabel>Pets</FormLabel>
+                            <FormLabel>Park Assist</FormLabel>
                             <RadioGroup row
-                                name="pets"
-                                value={values.pets}
+                                name="parkAssist"
+                                value={values.parkAssist}
                                 onChange={handleChange}>
                                 <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                                 <FormControlLabel value="No" control={<Radio />} label="No" />
                             </RadioGroup><br />
-                            <FormLabel>Breakfast</FormLabel>
-                            <RadioGroup row
-                                name="breakfast"
-                                value={values.breakfast}
-                                onChange={handleChange}>
-                                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                                <FormControlLabel value="No" control={<Radio />} label="No" />
-                            </RadioGroup>
                         </FormControl>
                         <div>
                             <Button text="Submit" type="submit" onClick={editData} />

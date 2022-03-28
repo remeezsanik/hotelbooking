@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { newData } from '../Data/newData'
-import { makeStyles } from '@material-ui/core';
-import NewRoomCard from '../Components/NewRoomCard'
+import { carData } from '../Data/carData';
+import CarCard from '../Components/CarCard';
 import { Button } from '../Components/Button';
+import { makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import AddRoomForm from '../Components/AddRoomForm';
+import AddCarForm from '../Components/AddCarForm';
 import Popup from '../Components/Popup';
 
 const usestyles = makeStyles(() => ({
@@ -14,24 +14,25 @@ const usestyles = makeStyles(() => ({
     }
 }));
 
-const NewRoom = () => {
+const Cars = () => {
     const classes = usestyles();
     const [openPopup, setOpenPopup] = useState(false);
+
     return (
         <>
-            <Button text="Add Room" variant="outlined"
+            <Button text="Add Car" variant="outlined"
                 startIcon={<AddIcon />}
                 className={classes.newButton}
                 onClick={() => setOpenPopup(true)}
             />
             <Popup openPopup={openPopup}
                 setOpenPopup={setOpenPopup}>
-                <AddRoomForm />
+                <AddCarForm />
             </Popup>
             <div >
-                {newData?.map((item) => (
+                {carData?.map((item) => (
                     <div key={item.id}>
-                        <NewRoomCard data={item} />
+                        <CarCard data={item} />
                     </div>
                 ))}
             </div>
@@ -39,4 +40,4 @@ const NewRoom = () => {
     )
 }
 
-export default NewRoom
+export default Cars

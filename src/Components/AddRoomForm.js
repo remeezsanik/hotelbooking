@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import img12 from "../assets/img/jpeg/room-12.jpeg";
+import { Select as MuiSelect } from '@material-ui/core';
 import {
     FormControl, FormLabel, FormControlLabel, Grid, Radio, RadioGroup,
     TextField, MenuItem, InputLabel
 } from '@material-ui/core'
-import { useForm, Form } from '../Components/useForm'
-import { Select } from '../Components/Select'
-import { Button } from '../Components/Button'
-import { Select as MuiSelect } from '@material-ui/core';
-import { newData } from '../Data/newData'
-import img12 from "../assets/img/jpeg/room-12.jpeg";
-import Title from '../Components/Title/Title';
-import { useHistory } from 'react-router-dom'
-
+import { useForm, Form } from './useForm';
+import { Select } from './Select';
+import { Button } from './Button';
+import { newData } from '../Data/newData';
 
 const initialValues = {
     id: '',
@@ -56,56 +53,29 @@ const roomCapacity = [
     { id: 6 },
     { id: 10 }
 ];
-function EditForm({ match }) {
-    const { values, handleChange, setValues } = useForm(initialValues);
-    const details = newData.find(item => item.id == match.params.id);
-    const history = useHistory();
 
-    useEffect(() => {
-        setValues({
-            id: details.id,
-            name: details.name,
-            type: details.type,
-            price: details.price,
-            size: details.size,
-            image: details.image,
-            capacity: details.capacity,
-            pets: details.pets,
-            breakfast: details.breakfast,
-        })
-    }, [details]);
+export default function AddRoomForm() {
+    const { values, handleChange } = useForm(initialValues);
 
-    const editData = (event) => {
-        event.preventDefault()
-        const index = newData.findIndex(s => s.id == match.params.id)
-        alert("Succesfully edited");
-        newData[index].name = values.name
-        newData[index].type = values.type
-        newData[index].price = values.price
-        newData[index].size = values.size
-        newData[index].capacity = values.capacity
-        newData[index].pets = values.pets
-        newData[index].breakfast = values.breakfast
-        history.push(`/newrooms/${details.id}`)
-        // console.log(newData[index])
-    }
-    // console.log(index)
-    const returnBack = () => {
-        history.push(`/newrooms/${details.id}`)
+    const submitHandler = (e) => {
+        e.preventDefault()
+        newData.push(values);
+        alert('Room Added!');
     };
-
     return (
         <>
-            <Title title="Edit Details" />
             <Form autoComplete="off">
                 <Grid container>
                     <Grid item xs={6}>
                         <TextField variant="outlined"
                             label="Room id"
                             name='id'
+                            type="number"
                             value={values.id}
+                            onChange={handleChange}
                         />
-                        <Select name="name"
+                        <Select
+                            name="name"
                             label="Room Category"
                             value={values.name}
                             onChange={handleChange}
@@ -164,14 +134,12 @@ function EditForm({ match }) {
                             </RadioGroup>
                         </FormControl>
                         <div>
-                            <Button text="Submit" type="submit" onClick={editData} />
-                            <Button text="Cancel" color="secondary" onClick={returnBack} />
+                            <Button text="Submit" type="submit" onClick={submitHandler} />
                         </div><br />
                     </Grid>
                 </Grid>
+                <div className='div-line' />
             </Form>
         </>
     )
 }
-
-export default EditForm

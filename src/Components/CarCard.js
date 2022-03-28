@@ -2,20 +2,22 @@ import { Grid } from '@material-ui/core';
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const NewRoomCard = ({ data }) => {
+
+const CarCard = ({ data }) => {
     const { id, name, image, price } = data;
+
     return (
         <>
             <Grid container>
                 <Grid item xs={6} className="grid-card">
                     <article className="room">
                         <div className="img-container">
-                            <img src={image} alt="single room" />
+                            <img src={image} alt="car image" />
                             <div className="price-top">
                                 <h6>$ {price}</h6>
-                                <p>per night</p>
+                                <p>Inc.of all taxes</p>
                             </div>
-                            <Link to={`/newrooms/${id}`} className="btn-primary room-link">
+                            <Link to={`/cars/${id}`} className="btn-primary room-link">
                                 Feature
                             </Link>
                         </div>
@@ -24,8 +26,7 @@ const NewRoomCard = ({ data }) => {
                 </Grid>
             </Grid>
         </>
-    );
+    )
 }
 
-export default NewRoomCard
-
+export default CarCard

@@ -14,6 +14,11 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import NewRoomDetails from "../Pages/NewRoomDetails";
 import EditForm from '../Pages/EditForm'
+import EditCar from '../Components/EditCar'
+import Cars from "../Pages/Cars";
+import CarDetails from "../Pages/CarDetails";
+
+
 function App() {
   return (
     <>
@@ -21,10 +26,13 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/rooms/" component={Room} />
-        <Route exact path="/new-room/" component={NewRoom} />
         <Route exact path="/rooms/:slug" component={SingleRoom} />
+        <Route exact path="/new-room/" component={NewRoom} />
         <Route exact path="/newrooms/:id" component={NewRoomDetails} />
         <Route exact path='/newroom/edit/:id' component={EditForm} />
+        <Route exact path="/cars/" component={Cars} />
+        <Route exact path="/cars/:id" component={CarDetails} />
+        <Route exact path="/cars/edit/:id" component={EditCar} />
         <Route component={Error} />
       </Switch>
       <Footer />
