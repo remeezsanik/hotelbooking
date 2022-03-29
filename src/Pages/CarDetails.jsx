@@ -9,10 +9,11 @@ import { useHistory } from 'react-router-dom';
 
 function CarDetails({ match }) {
     const details = carData.find(item => item.id == match.params.id);
+    const removeItem = details.id;
     const history = useHistory();
     const deleteHandler = (e) => {
         e.preventDefault();
-        carData.pop(details.id);
+        carData.splice(carData.findIndex((item) => item.id === removeItem), 1);
         alert('Successfully Deleted!');
         history.push('/cars');
     }
