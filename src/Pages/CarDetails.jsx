@@ -38,8 +38,8 @@ function CarDetails({ match }) {
                             {details.capacity > 1 ? `${details.type}` : `${details.type}`}
                         </h6>
                         <h6>
-                            Passengers:{" "}
-                            {details.capacity > 1 ? `${details.capacity} passengers` : `${details.capacity} passengers`}
+                            Passengers :{" "}
+                            {details.capacity > 1 ? `${details.capacity} passengers` : `${details.capacity} passenger`}
                         </h6>
                         <h6> Park Assistance :{" "} {details.parkAssist === 'Yes' ? "Yes" : "No"}</h6>
                         <Link to={`/cars/edit/${details.id}`} className='btn-primary'>
