@@ -37,13 +37,15 @@ function NewRoomDetails({ match }) {
                             max capacity :{" "}
                             {details.capacity > 1 ? `${details.capacity} people` : `${details.capacity} person`}
                         </h6>
-                        <h6>{details.pets ? "pets allowed" : "no pets allowed"}</h6>
-                        <h6>{details.breakfast && "free breakfast included"}</h6>
+                        <h6>{details.pets === 'Yes' ? "pets allowed" : "no pets allowed"}</h6>
+                        <h6>{details.breakfast === 'Yes' && "free breakfast included"}</h6>
                         <Link to={`/newroom/edit/${details.id}`} className='btn-primary'>
                             Edit
                         </Link>
-                        <Button text="Delete" color="secondary" onClick={deleteHandler}
-                        />
+                        <Button text="Delete" color="secondary" onClick={deleteHandler} />
+                        {/* <Link to={"/checkout/"} className='btn-primary'>
+                            Checkout
+                        </Link> */}
                     </article>
                 </div>
             </section>

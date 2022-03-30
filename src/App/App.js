@@ -17,6 +17,7 @@ import EditRoom from '../Pages/EditRoom'
 import EditCar from '../Components/EditCar'
 import Cars from "../Pages/Cars";
 import CarDetails from "../Pages/CarDetails";
+import Checkout from "../Pages/Checkout";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/cars/" component={Cars} />
         <Route exact path="/cars/:id" component={CarDetails} />
         <Route exact path="/cars/edit/:id" component={EditCar} />
+        <Route exact path="/checkout/" component={Checkout} />
         <Route component={Error} />
       </Switch>
       <Footer />
