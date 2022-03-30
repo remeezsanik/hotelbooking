@@ -169,6 +169,13 @@ h6 {
     padding: 0.5rem 0;
   }
 }
+.cart {
+  position: absolute;
+  right: 50px;
+  padding-left: 20px;
+  /* border: 1px solid var(--primaryColor); */
+  /* border-radius: 10%; */
+}
 /* end of navbar */
 /* Hero */
 .defaultHero,

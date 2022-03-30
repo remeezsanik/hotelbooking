@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 // import react-router-dom
 import { Link } from "react-router-dom";
 
 // import assets
 import Logo from "../../assets/img/svg/logo.svg";
 import { FaAlignRight } from "react-icons/fa";
+import { useStateValue } from "../../Context/StateProvider";
 
 export default class Navbar extends Component {
+
   state = {
     isOpen: false,
   };
@@ -49,6 +51,9 @@ export default class Navbar extends Component {
             </li>
             <li>
               <Link to="/cars/">Cars</Link>
+            </li>
+            <li className="cart">
+              <Link to="/checkout/"><ShoppingBasketIcon /></Link>
             </li>
           </ul>
         </div>

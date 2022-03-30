@@ -3,9 +3,11 @@ import { carData } from '../Data/carData'
 import { Link } from 'react-router-dom'
 import StyledHero from "../Components/StyledHero/StyledHero";
 import benz from '../assets/img/cars/benz.jpeg'
+import AddIcon from '@material-ui/icons/Add';
 import Banner from "../Components/Banner/Banner";
 import { Button } from '../Components/Button'
 import { useHistory } from 'react-router-dom';
+import { useStateValue } from '../Context/StateProvider';
 
 function CarDetails({ match }) {
     const details = carData.find(item => item.id == match.params.id);
@@ -17,6 +19,23 @@ function CarDetails({ match }) {
         alert('Successfully Deleted!');
         history.push('/cars');
     }
+    const [{ basket }, dispatch] = useStateValue();
+    const AddToCart = () => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            data: {
+                id: details.id,
+                name: details.name,
+                image: details.image,
+                type: details.type,
+                price: details.price,
+                capacity: details.capacity,
+                parkAssist: details.parkAssist
+            }
+        })
+        alert('item added to cart!');
+    }
+    console.log("basket>>", basket);
 
     return (
         <>
@@ -46,6 +65,10 @@ function CarDetails({ match }) {
                             Edit
                         </Link>
                         <Button text="Delete" color="secondary" onClick={deleteHandler}
+                        />
+                        <Button text="Add to Cart" variant="outlined"
+                            startIcon={<AddIcon />}
+                            onClick={AddToCart}
                         />
                     </article>
                 </div>

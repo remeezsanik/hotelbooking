@@ -9,12 +9,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // import context
 import { RoomProvider } from "./Context/Context";
+import { StateProvider } from "./Context/StateProvider";
+import reducer, { initialState } from "./reducer";
 
 ReactDOM.render(
   <RoomProvider>
-    <Router>
-      <App />
-    </Router>
+    <StateProvider initialState={initialState} reducer={ reducer}>
+      <Router>
+        <App />
+      </Router>
+    </StateProvider>
   </RoomProvider>,
   document.getElementById("root")
 );

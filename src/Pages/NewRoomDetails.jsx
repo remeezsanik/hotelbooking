@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import StyledHero from "../Components/StyledHero/StyledHero";
 import img12 from "../assets/img/jpeg/room-12.jpeg";
 import Banner from "../Components/Banner/Banner";
+import AddIcon from '@material-ui/icons/Add';
 import { Button } from '../Components/Button'
 import { useHistory } from 'react-router-dom';
+import { useStateValue } from '../Context/StateProvider';
 
 function NewRoomDetails({ match }) {
     const details = newData.find(item => item.id == match.params.id);
@@ -17,7 +19,23 @@ function NewRoomDetails({ match }) {
         alert('Successfully Deleted!');
         history.push('/new-room');
     }
-
+    const [{ basket }, dispatch] = useStateValue();
+    const AddToCart = () => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            data: {
+                id: details.id,
+                name: details.name,
+                image: details.image,
+                price: details.price,
+                size: details.size,
+                capacity: details.capacity,
+                pets: details.pets
+            }
+        })
+        alert('item added to cart!');
+    }
+    // console.log("basket>>", basket);
     return (
         <>
             <StyledHero img={details.image || img12}>
@@ -43,9 +61,10 @@ function NewRoomDetails({ match }) {
                             Edit
                         </Link>
                         <Button text="Delete" color="secondary" onClick={deleteHandler} />
-                        {/* <Link to={"/checkout/"} className='btn-primary'>
-                            Checkout
-                        </Link> */}
+                        <Button text="Add to Cart" variant="outlined"
+                            startIcon={<AddIcon />}
+                            onClick={AddToCart}
+                        />
                     </article>
                 </div>
             </section>
