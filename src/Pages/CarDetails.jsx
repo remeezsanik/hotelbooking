@@ -35,7 +35,7 @@ function CarDetails({ match }) {
         })
         alert('item added to cart!');
     }
-    console.log("basket>>", basket);
+    // console.log("basket>>", basket);
 
     return (
         <>
@@ -61,8 +61,8 @@ function CarDetails({ match }) {
                             {details.capacity > 1 ? `${details.capacity} passengers` : `${details.capacity} passenger`}
                         </h6>
                         <h6> Park Assistance :{" "} {details.parkAssist === 'Yes' ? "Yes" : "No"}</h6>
-                        <Link to={`/cars/edit/${details.id}`} className='btn-primary'>
-                            Edit
+                        <Link to={`/cars/edit/${details.id}`} style={{ textDecoration: 'none' }}>
+                            <Button text="Edit" color="default" />
                         </Link>
                         <Button text="Delete" color="secondary" onClick={deleteHandler}
                         />

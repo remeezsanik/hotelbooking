@@ -57,8 +57,8 @@ function NewRoomDetails({ match }) {
                         </h6>
                         <h6>{details.pets === 'Yes' ? "pets allowed" : "no pets allowed"}</h6>
                         <h6>{details.breakfast === 'Yes' && "free breakfast included"}</h6>
-                        <Link to={`/newroom/edit/${details.id}`} className='btn-primary'>
-                            Edit
+                        <Link to={`/newroom/edit/${details.id}`} style={{ textDecoration: 'none' }} >
+                            <Button text="Edit" color="default" />
                         </Link>
                         <Button text="Delete" color="secondary" onClick={deleteHandler} />
                         <Button text="Add to Cart" variant="outlined"
