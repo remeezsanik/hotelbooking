@@ -16,7 +16,7 @@ function NewRoomDetails({ match }) {
     const deleteHandler = (e) => {
         e.preventDefault();
         newData.splice(newData.findIndex((item) => item.id === removeItem), 1);
-        alert('Successfully Deleted!');
+        alert('Item Deleted!');
         history.push('/new-room');
     }
     const [{ basket }, dispatch] = useStateValue();

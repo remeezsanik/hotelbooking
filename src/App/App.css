@@ -177,6 +177,35 @@ h6 {
   /* border-radius: 10%; */
 }
 /* end of navbar */
+/* checkout */
+/* .checkout{
+  display: flex;
+} */
+.checkout__card{
+  display: flex;
+  flex-direction: column;
+}
+/* end of checkout */
+/* subtotal */
+.subtotal {
+  /* display: flex; */
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  margin-top: 50px;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  background-color: #E8E8E8;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+.subtotal p {
+  color: #222;
+}
+/* end of subtotal */
 /* Hero */
 .defaultHero,
 .roomsHero {

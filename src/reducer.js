@@ -1,35 +1,35 @@
 import img1 from "./assets/img/jpeg/room-1.jpeg";
-import p911 from './assets/img/cars/p911.jpeg'
+import audia8 from "./assets/img/cars/audia8.jpeg";
 
 export const initialState = {
     basket: [
-        {
-            id: 1,
-            name: "Single Economy",
-            type: "Single Economy",
-            image: img1,
-            price: 100,
-            size: 200,
-            capacity: 1,
-            pets: "No",
-            breakfast: "Yes",
-        },
-        {
-            id: 1,
-            name: "Porsche 911",
-            type: "2 Seater",
-            image: p911,
-            price: 7000,
-            capacity: 2,
-            parkAssist: "Yes",
-        }
+        // {
+        //     id: 1,
+        //     name: "Single Economy",
+        //     type: "Single Economy",
+        //     image: img1,
+        //     price: 100,
+        //     size: 200,
+        //     capacity: 1,
+        //     pets: "No",
+        //     breakfast: "Yes",
+        // },
+        // {
+        //     id: 2,
+        //     name: "Audi A8",
+        //     type: "4 Seater",
+        //     image: audia8,
+        //     price: 4000,
+        //     capacity: 4,
+        //     parkAssist: "Yes",
+        // }
     ],
 }
-
+export const getBasketTotal = (basket) => basket?.reduce((amount, item) => item.price + amount, 0);
 
 const reducer = (state, action) => {
 
-    console.log("data>>", action);
+    // console.log("data>>", action);
     switch (action.type) {
         case 'ADD_TO_BASKET':
             return {

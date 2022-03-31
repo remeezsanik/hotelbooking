@@ -16,7 +16,7 @@ function CarDetails({ match }) {
     const deleteHandler = (e) => {
         e.preventDefault();
         carData.splice(carData.findIndex((item) => item.id === removeItem), 1);
-        alert('Successfully Deleted!');
+        alert('Item Deleted!');
         history.push('/cars');
     }
     const [{ basket }, dispatch] = useStateValue();

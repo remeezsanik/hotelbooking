@@ -19,7 +19,7 @@ const CheckoutProducts = ({ id, type, name, image, price, size, capacity, pets, 
     }
 
     return (
-        <>
+        <div className='checkout__card'>
             <Card sx={{ maxWidth: 350 }} style={{ marginBottom: '10px', backgroundColor: '#E8E8E8' }}>
                 <CardMedia
                     component="img"
@@ -64,7 +64,7 @@ const CheckoutProducts = ({ id, type, name, image, price, size, capacity, pets, 
                     <Button text="Remove Item" color="defaut" size="small" onClick={removeItem} />
                 </CardActions>
             </Card>
-        </>
+        </div>
     )
 }
 

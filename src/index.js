@@ -14,7 +14,7 @@ import reducer, { initialState } from "./reducer";
 
 ReactDOM.render(
   <RoomProvider>
-    <StateProvider initialState={initialState} reducer={ reducer}>
+    <StateProvider initialState={initialState} reducer={reducer}>
       <Router>
         <App />
       </Router>
