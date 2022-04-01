@@ -16,7 +16,7 @@ const Checkout = () => {
                             <div style={{ padding: '10px' }}>
                                 <h2>Cart is empty!</h2>
                                 <p style={{ color: 'black', paddingBottom: '10px' }}>
-                                    You have no items in the basket.</p>
+                                    There is no item in the basket.</p>
                             </div>
                         ) : (
                             <div style={{ padding: '10px' }}>
@@ -27,7 +27,7 @@ const Checkout = () => {
                                 }
                                 {basket?.map((item) => (
                                     <CheckoutProducts
-                                        key={item.id}
+                                        // key={item.id}
                                         item={item.id}
                                         type={item.type}
                                         parkAssist={item.parkAssist}

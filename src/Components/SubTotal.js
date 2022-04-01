@@ -14,6 +14,7 @@ const SubTotal = () => {
             alert("Sorry, cart is empty");
         }
     }
+
     return (
         <div className='subtotal'>
             <CurrencyFormat
@@ -25,7 +26,7 @@ const SubTotal = () => {
                 decimalScale={2}
                 value={getBasketTotal(basket)}
                 displayType={'text'}
-                thousandSeperator={true}
+                thousandSeparator={true}
                 prefix={'$'}
             />
             <Button text="Place Order" color="primary" onClick={orderPlaced} />

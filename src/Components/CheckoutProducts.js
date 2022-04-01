@@ -1,4 +1,3 @@
-import { Paper } from '@material-ui/core'
 import React from 'react'
 import { Button } from './Button'
 import Card from '@mui/material/Card';
@@ -17,7 +16,8 @@ const CheckoutProducts = ({ id, type, name, image, price, size, capacity, pets, 
         });
         alert('Item removed');
     }
-
+    console.log("checkout>>>", basket);
+    
     return (
         <div className='checkout__card'>
             <Card sx={{ maxWidth: 350 }} style={{ marginBottom: '10px', backgroundColor: '#E8E8E8' }}>

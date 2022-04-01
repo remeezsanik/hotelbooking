@@ -38,8 +38,13 @@ const reducer = (state, action) => {
             }
         case 'REMOVE_FROM_BASKET':
             let newBasket = [...state.basket]
-            const index = state.basket.findIndex((basketItem) => basketItem.id === action.id);
+            const index = state.basket.findIndex((basketItem) => basketItem.id == action.id);
             newBasket.splice(index, 1);
+            // if (index >= 0) {
+            //     newBasket.splice(index, 1);
+            // } else {
+            //     console.warn(`Cant remove product ${action.id} as its not available`);
+            // }
             return {
                 ...state,
                 basket: newBasket
