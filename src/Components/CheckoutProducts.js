@@ -17,7 +17,8 @@ const CheckoutProducts = ({ id, type, name, image, price, size, capacity, pets, 
         alert('Item removed');
     }
     console.log("checkout>>>", basket);
-    
+    console.log("Type of price>>>", typeof (price));
+
     return (
         <div className='checkout__card'>
             <Card sx={{ maxWidth: 350 }} style={{ marginBottom: '10px', backgroundColor: '#E8E8E8' }}>
